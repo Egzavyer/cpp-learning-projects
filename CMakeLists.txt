@@ -3,4 +3,8 @@ project(tutorial)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(tutorial main.cpp)
+add_executable(tutorial main.cpp
+        Source/calculator.cpp
+        Include/calculator.h
+        Source/hypotenuse.cpp
+        Include/hypotenuse.h)
