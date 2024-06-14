@@ -1,9 +1,0 @@
-# ninja log v6
-9	870	7398673480101839	CMakeFiles/tutorial.dir/main.cpp.obj	d9f0dcf11b75b2bd
-875	1003	7398673488749939	tutorial.exe	68d38440fc94b0fe
-53	576	7401001324399083	CMakeFiles/tutorial.dir/main.cpp.obj	d9f0dcf11b75b2bd
-577	751	7401001329637937	tutorial.exe	68d38440fc94b0fe
-17	587	7401001442163422	CMakeFiles/tutorial.dir/main.cpp.obj	d9f0dcf11b75b2bd
-588	704	7401001447865083	tutorial.exe	68d38440fc94b0fe
-13	559	7401008796647909	CMakeFiles/tutorial.dir/main.cpp.obj	d9f0dcf11b75b2bd
-560	692	7401008802110446	tutorial.exe	68d38440fc94b0fe
