@@ -25,10 +25,10 @@ void handleMenuChoice(int choice){
             char op;
             double num1,num2,res;
             std::cout << "CLI CALCULATOR PROGRAM\n";
-            std::cout << "Enter operator (+ - * /):";
-            std::cin >> op;
             std::cout << "Enter 1st number:";
             std::cin >> num1;
+            std::cout << "Enter operator (+ - * /):";
+            std::cin >> op;
             std::cout << "Enter 2nd number:";
             std::cin >> num2;
             try{
@@ -36,7 +36,7 @@ void handleMenuChoice(int choice){
             } catch (std::exception& e){
                 std::cout << e.what() << std::endl;
             }
-            std::cout << num1 << " " << op << num2 << " = " << res << std::endl;
+            std::cout << num1 << " " << op << " " << num2 << " = " << res << std::endl;
             return;
         case 3:
             std::cout << "EXITING...";
