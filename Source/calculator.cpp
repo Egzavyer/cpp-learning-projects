@@ -1,7 +1,3 @@
-//
-// Created by xcppl on 2024-06-14.
-//
-
 #include "../Include/calculator.h"
 
 double Calculator::calculate(char op, double num1, double num2) {

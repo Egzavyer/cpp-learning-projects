@@ -2,24 +2,27 @@
 
 #include "Include/calculator.h"
 #include "Include/hypotenuse.h"
+#include "Include/temp_converter.h"
 
 void showMenu(){
-    std::cout << "1. Calculate hypotenuse\n";
+    std::cout << "1. Calculate Hypotenuse\n";
     std::cout << "2. CLI Calculator\n";
-    std::cout << "3. Exit\n";
+    std::cout << "3. Temperature Converter\n";
+    std::cout << "4. Exit\n";
     std::cout << "Choose:";
 }
 
 void handleMenuChoice(int choice){
     switch(choice){
         case 1:
-            double a,b;
+            double a,b,c;
             std::cout << "PROGRAM TO CALCULATE THE HYPOTENUSE OF A TRIANGLE\n";
             std::cout << "Enter the length of the 1st side in cm:";
             std::cin >> a;
             std::cout << "Enter the length of the 2nd side in cm:";
             std::cin >> b;
-            std::cout << "The hypotenuse is " << Hypotenuse::hypotenuse(a,b) << "cm\n";
+            c = Hypotenuse::hypotenuse(a,b);
+            std::cout << "The hypotenuse is " << c << "cm\n";
             return;
         case 2:
             char op;
@@ -35,10 +38,32 @@ void handleMenuChoice(int choice){
                 res = Calculator::calculate(op,num1,num2);
             } catch (std::exception& e){
                 std::cout << e.what() << std::endl;
+                return;
             }
             std::cout << num1 << " " << op << " " << num2 << " = " << res << std::endl;
             return;
         case 3:
+            double temp,converted;
+            char unit;
+
+            std::cout << "TEMPERATURE CONVERTER PROGRAM\n";
+            std::cout << "Enter the temperature:";
+            std::cin >> temp;
+            std::cout << "Enter the units to convert to (F/C):";
+            std::cin >> unit;
+            try {
+                converted = TempConverter::converter(temp, unit);
+            } catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+                return;
+            }
+            if (unit == 'c' || unit == 'C') {
+                std::cout << temp << "\370F -> " <<  converted << "\370C\n";
+            } else {
+                std::cout << temp << "\370C -> " <<  converted << "\370F\n";
+            }
+            return;
+        case 4:
             std::cout << "EXITING...";
             exit(0);
         default:

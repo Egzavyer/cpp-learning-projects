@@ -7,4 +7,6 @@ add_executable(tutorial main.cpp
         Source/calculator.cpp
         Include/calculator.h
         Source/hypotenuse.cpp
-        Include/hypotenuse.h)
+        Include/hypotenuse.h
+        Source/temp_converter.cpp
+        Include/temp_converter.h)
