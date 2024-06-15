@@ -7,11 +7,12 @@
 
 class Banking {
 public:
-    static void showBalance();
-    static double depositMoney(double amount);
-    static double withdrawMoney(double amount);
+    Banking();
+    void showBalance() const;
+    double depositMoney(double amount);
+    double withdrawMoney(double amount);
 private:
-    static double balance;
+    double balance;
 };
 
 

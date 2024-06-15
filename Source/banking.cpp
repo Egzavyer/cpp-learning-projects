@@ -1,28 +1,30 @@
 
 #include "../Include/banking.h"
 
-double Banking::balance = 0;
+Banking::Banking(): balance(0) {
 
-void Banking::showBalance() {
-    std::cout << balance;
+};
+
+void Banking::showBalance() const{
+    std::cout << this->balance;
 }
 
 double Banking::depositMoney(double amount) {
     if (amount > 0){
-        balance += amount;
+        this->balance += amount;
     } else {
         throw std::invalid_argument ("ERROR: Enter a valid amount");
     }
-    return balance;
+    return this->balance;
 }
 
 double Banking::withdrawMoney(double amount) {
-    if (amount > 0 && (balance - amount) > 0){
-        balance -= amount;
+    if (amount > 0 && (this->balance - amount) > 0){
+        this->balance -= amount;
     }else if (amount < 0){
         throw std::invalid_argument ("ERROR: Enter a valid amount");
-    } else if ((balance - amount)  < 0){
+    } else if ((this->balance - amount)  < 0){
         throw std::invalid_argument ("ERROR: Insufficient funds");
     }
-    return balance;
+    return this->balance;
 }

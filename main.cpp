@@ -109,10 +109,12 @@ void handleMenuChoice(int choice){
                     std::cout << "Choose:";
                     std::cin >> bankChoice;
 
+                    Banking account;
+
                     switch (bankChoice) {
                         case 1:
                             std::cout << "You have ";
-                            Banking::showBalance();
+                            account.showBalance();
                             std::cout << "$ in your account!\n\n";
                             break;
                         case 2:
@@ -120,7 +122,8 @@ void handleMenuChoice(int choice){
                             std::cin >> amount;
                             std::cout << "Depositing " << amount << "$...\n";
                             try {
-                                std::cout << "Your new balance is " << Banking::depositMoney(amount) << "$\n\n";
+                                double newBalance = account.depositMoney(amount);
+                                std::cout << "Your new balance is " << newBalance << "$\n\n";
                             } catch (std::exception &e) {
                                 std::cout << e.what() << std::endl;
                             }
@@ -131,7 +134,8 @@ void handleMenuChoice(int choice){
                             std::cin >> amount;
                             std::cout << "Withdrawing " << amount << "$...\n";
                             try {
-                                std::cout << "Your new balance is " << Banking::withdrawMoney(amount) << "$\n\n";
+                                double newBalance = account.withdrawMoney(amount);
+                                std::cout << "Your new balance is " << newBalance << "$\n\n";
                             } catch (std::exception &e) {
                                 std::cout << e.what() << std::endl;
                             }
@@ -142,11 +146,11 @@ void handleMenuChoice(int choice){
                             exit(0);
                         default:
                             throw std::invalid_argument("ERROR: Please enter a valid choice\n");
-
                     }
                 }
             } catch (std::exception& e) {
                 std::cout << e.what() << std::endl;
+                break;
             }
 
         case 10:
