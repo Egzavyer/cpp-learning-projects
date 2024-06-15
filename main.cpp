@@ -74,19 +74,18 @@ void handleMenuChoice(int choice){
             num = (rand() % 100);
             guess = 0;
             tries = 0;
-            result = 0;
             min = 0;
             max = 100;
 
             std::cout << "NUMBER GUESSER PROGRAM\n";
             do {
                 tries++;
-                std::cout << "Guess a number between " << min << " and " << max << ":\n";
+                std::cout << "Guess a number between " << min << " and " << max << ":";
                 std::cin >> guess;
                 result = NumberGuesser::numberGuesser(num, guess);
-                if (result == -1) {
+                if (result == -1 && guess >= min) {
                     min = guess + 1;
-                } else if (result == 1) {
+                } else if (result == 1 && guess <= max) {
                     max = guess - 1;
                 }
             }
