@@ -11,4 +11,6 @@ add_executable(tutorial main.cpp
         Source/temp_converter.cpp
         Include/temp_converter.h
         Source/number_guesser.cpp
-        Include/number_guesser.h)
+        Include/number_guesser.h
+        Source/banking.cpp
+        Include/banking.h)

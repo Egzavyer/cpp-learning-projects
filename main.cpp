@@ -4,13 +4,15 @@
 #include "Include/hypotenuse.h"
 #include "Include/temp_converter.h"
 #include "Include/number_guesser.h"
+#include "Include/banking.h"
 
 void showMenu(){
     std::cout << "1. Calculate Hypotenuse\n";
     std::cout << "2. CLI Calculator\n";
     std::cout << "3. Temperature Converter\n";
     std::cout << "4. Number Guessing Game\n";
-    std::cout << "5. Exit\n";
+    std::cout << "5. Banking Program\n";
+    std::cout << "10. Exit\n";
     std::cout << "Choose:";
 }
 
@@ -26,7 +28,7 @@ void handleMenuChoice(int choice){
             std::cin >> b;
             c = Hypotenuse::hypotenuse(a,b);
             std::cout << "The hypotenuse is " << c << "cm\n";
-            return;
+            break;
 
         case 2:
             char op;
@@ -42,10 +44,10 @@ void handleMenuChoice(int choice){
                 res = Calculator::calculate(op,num1,num2);
             } catch (std::exception& e){
                 std::cout << e.what() << std::endl;
-                return;
+                break;
             }
             std::cout << num1 << " " << op << " " << num2 << " = " << res << std::endl;
-            return;
+            break;
 
         case 3:
             double temp,converted;
@@ -60,14 +62,14 @@ void handleMenuChoice(int choice){
                 converted = TempConverter::converter(temp, unit);
             } catch(std::exception& e) {
                 std::cout << e.what() << std::endl;
-                return;
+                break;
             }
             if (unit == 'c' || unit == 'C') {
                 std::cout << temp << "\370F -> " <<  converted << "\370C\n";
             } else {
                 std::cout << temp << "\370C -> " <<  converted << "\370F\n";
             }
-            return;
+            break;
         case 4:
             srand(time(nullptr));
             int num, guess, tries,min,max,result;
@@ -92,9 +94,62 @@ void handleMenuChoice(int choice){
             while (result != 0);
 
             std::cout << "You found the number " << num << " in " << tries << " tries!\n";
-            return;
+            break;
 
         case 5:
+            double amount;
+            int bankChoice;
+            try {
+                while (true) {
+                    std::cout << "BANKING PROGRAM\n";
+                    std::cout << "1. View balance\n";
+                    std::cout << "2. Deposit\n";
+                    std::cout << "3. Withdraw\n";
+                    std::cout << "4. Exit\n";
+                    std::cout << "Choose:";
+                    std::cin >> bankChoice;
+
+                    switch (bankChoice) {
+                        case 1:
+                            std::cout << "You have ";
+                            Banking::showBalance();
+                            std::cout << "$ in your account!\n\n";
+                            break;
+                        case 2:
+                            std::cout << "Enter the amount you want to deposit:\n";
+                            std::cin >> amount;
+                            std::cout << "Depositing " << amount << "$...\n";
+                            try {
+                                std::cout << "Your new balance is " << Banking::depositMoney(amount) << "$\n\n";
+                            } catch (std::exception &e) {
+                                std::cout << e.what() << std::endl;
+                            }
+                            amount = 0;
+                            break;
+                        case 3:
+                            std::cout << "Enter the amount you want to withdraw:\n";
+                            std::cin >> amount;
+                            std::cout << "Withdrawing " << amount << "$...\n";
+                            try {
+                                std::cout << "Your new balance is " << Banking::withdrawMoney(amount) << "$\n\n";
+                            } catch (std::exception &e) {
+                                std::cout << e.what() << std::endl;
+                            }
+                            amount = 0;
+                            break;
+                        case 4:
+                            std::cout << "Exiting Bank...\n";
+                            exit(0);
+                        default:
+                            throw std::invalid_argument("ERROR: Please enter a valid choice\n");
+
+                    }
+                }
+            } catch (std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
+
+        case 10:
             std::cout << "EXITING...";
             exit(0);
         default:
