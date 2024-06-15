@@ -9,4 +9,6 @@ add_executable(tutorial main.cpp
         Source/hypotenuse.cpp
         Include/hypotenuse.h
         Source/temp_converter.cpp
-        Include/temp_converter.h)
+        Include/temp_converter.h
+        Source/number_guesser.cpp
+        Include/number_guesser.h)

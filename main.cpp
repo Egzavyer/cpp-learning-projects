@@ -3,17 +3,20 @@
 #include "Include/calculator.h"
 #include "Include/hypotenuse.h"
 #include "Include/temp_converter.h"
+#include "Include/number_guesser.h"
 
 void showMenu(){
     std::cout << "1. Calculate Hypotenuse\n";
     std::cout << "2. CLI Calculator\n";
     std::cout << "3. Temperature Converter\n";
-    std::cout << "4. Exit\n";
+    std::cout << "4. Number Guessing Game\n";
+    std::cout << "5. Exit\n";
     std::cout << "Choose:";
 }
 
 void handleMenuChoice(int choice){
     switch(choice){
+
         case 1:
             double a,b,c;
             std::cout << "PROGRAM TO CALCULATE THE HYPOTENUSE OF A TRIANGLE\n";
@@ -24,6 +27,7 @@ void handleMenuChoice(int choice){
             c = Hypotenuse::hypotenuse(a,b);
             std::cout << "The hypotenuse is " << c << "cm\n";
             return;
+
         case 2:
             char op;
             double num1,num2,res;
@@ -42,6 +46,7 @@ void handleMenuChoice(int choice){
             }
             std::cout << num1 << " " << op << " " << num2 << " = " << res << std::endl;
             return;
+
         case 3:
             double temp,converted;
             char unit;
@@ -64,6 +69,24 @@ void handleMenuChoice(int choice){
             }
             return;
         case 4:
+            srand(time(nullptr));
+            int num, guess, tries;
+            num = (rand() % 100);
+            guess = 0;
+            tries = 0;
+
+            std::cout << "NUMBER GUESSER PROGRAM\n";
+            do {
+                tries++;
+                std::cout << "Guess a number between 0 and 100:\n";
+                std::cin >> guess;
+            }
+            while (NumberGuesser::numberGuesser(num, guess) != 0);
+
+            std::cout << "You found the number " << num << " in " << tries << " tries!\n";
+            return;
+
+        case 5:
             std::cout << "EXITING...";
             exit(0);
         default:
