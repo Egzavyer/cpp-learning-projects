@@ -70,18 +70,27 @@ void handleMenuChoice(int choice){
             return;
         case 4:
             srand(time(nullptr));
-            int num, guess, tries;
+            int num, guess, tries,min,max,result;
             num = (rand() % 100);
             guess = 0;
             tries = 0;
+            result = 0;
+            min = 0;
+            max = 100;
 
             std::cout << "NUMBER GUESSER PROGRAM\n";
             do {
                 tries++;
-                std::cout << "Guess a number between 0 and 100:\n";
+                std::cout << "Guess a number between " << min << " and " << max << ":\n";
                 std::cin >> guess;
+                result = NumberGuesser::numberGuesser(num, guess);
+                if (result == -1) {
+                    min = guess + 1;
+                } else if (result == 1) {
+                    max = guess - 1;
+                }
             }
-            while (NumberGuesser::numberGuesser(num, guess) != 0);
+            while (result != 0);
 
             std::cout << "You found the number " << num << " in " << tries << " tries!\n";
             return;
