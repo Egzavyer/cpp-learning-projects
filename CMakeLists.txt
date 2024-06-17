@@ -13,4 +13,7 @@ add_executable(tutorial main.cpp
         Source/number_guesser.cpp
         Include/number_guesser.h
         Source/banking.cpp
-        Include/banking.h)
+        Include/banking.h
+        Source/rock_paper_scissors.cpp
+        Include/rock_paper_scissors.h
+)
