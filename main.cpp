@@ -185,13 +185,21 @@ void handleMenuChoice(int choice){
             break;
         }
         case 7: {
-            int numArr[] = {5,4,3,2,1}; //TODO: MAKE USERS INPUT OWN NUMBERS
-            int size = sizeof(numArr)/sizeof(numArr[0]);
-            std::string inputNums;
+            int size;
 
             std::cout << "ARRAY SORTING PROGRAM\n";
-            std::getline(std::cin, inputNums);
+            std::cout << "Enter the array size:";
+            std::cin >> size;
+            int numArr[size];
+
+            for (int i = 0; i < size; i++){
+                std::cout << "Enter a number:";
+                std::cin >> numArr[i];
+            }
+
             Sorting::bubbleSort(numArr, size);
+
+            std::cout << "The sorted array is:\n";
 
             for (int k = 0; k < size; k++) {
                 std::cout << numArr[k] << ' ';

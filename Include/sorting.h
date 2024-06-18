@@ -2,6 +2,8 @@
 #define TUTORIAL_SORTING_H
 
 #include <iostream>
+#include <ctime>
+#include <chrono>
 
 
 class Sorting {
