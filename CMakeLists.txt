@@ -16,4 +16,6 @@ add_executable(tutorial main.cpp
         Include/banking.h
         Source/rock_paper_scissors.cpp
         Include/rock_paper_scissors.h
+        Source/sorting.cpp
+        Include/sorting.h
 )

@@ -6,6 +6,7 @@
 #include "Include/number_guesser.h"
 #include "Include/banking.h"
 #include "Include/rock_paper_scissors.h"
+#include "Include/sorting.h"
 
 void showMenu(){
     std::cout << "1. Calculate Hypotenuse\n";
@@ -14,6 +15,7 @@ void showMenu(){
     std::cout << "4. Number Guessing Game\n";
     std::cout << "5. Banking Program\n";
     std::cout << "6. Rock-Paper-Scissors Game\n";
+    std::cout << "7. Sort Array\n";
     std::cout << "10. Exit\n";
     std::cout << "Choose:";
 }
@@ -180,6 +182,21 @@ void handleMenuChoice(int choice){
                     std::cout << e.what() << std::endl;
                 }
             } while (restart == 'y');
+            break;
+        }
+        case 7: {
+            int numArr[] = {5,4,3,2,1}; //TODO: MAKE USERS INPUT OWN NUMBERS
+            int size = sizeof(numArr)/sizeof(numArr[0]);
+            std::string inputNums;
+
+            std::cout << "ARRAY SORTING PROGRAM\n";
+            std::getline(std::cin, inputNums);
+            Sorting::bubbleSort(numArr, size);
+
+            for (int k = 0; k < size; k++) {
+                std::cout << numArr[k] << ' ';
+            }
+            std::cout << '\n';
             break;
         }
         case 10:
