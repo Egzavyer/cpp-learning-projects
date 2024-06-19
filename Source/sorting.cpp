@@ -1,7 +1,7 @@
 
 #include "../Include/sorting.h"
 
-void Sorting::bubbleSort(int nums[], int size) {
+void Sorting::bubbleSort(int *nums, int size) {
 
     auto start = std::chrono::system_clock::now();
 
@@ -25,5 +25,5 @@ void Sorting::bubbleSort(int nums[], int size) {
     auto end = std::chrono::system_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     std::cout << "\n***********************************************\n";
-    std::cout << "Sorted in " << elapsed << '\n';
+    std::cout << "Sorted in " << elapsed << " with Bubble Sort\n";
 }
