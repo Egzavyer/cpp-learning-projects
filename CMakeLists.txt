@@ -18,4 +18,6 @@ add_executable(tutorial main.cpp
         Include/rock_paper_scissors.h
         Source/sorting.cpp
         Include/sorting.h
+        Source/quiz.cpp
+        Include/quiz.h
 )

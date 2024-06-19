@@ -7,6 +7,7 @@
 #include "Include/banking.h"
 #include "Include/rock_paper_scissors.h"
 #include "Include/sorting.h"
+#include "Include/quiz.h"
 
 void showMenu(){
     std::cout << "1. Calculate Hypotenuse\n";
@@ -16,6 +17,7 @@ void showMenu(){
     std::cout << "5. Banking Program\n";
     std::cout << "6. Rock-Paper-Scissors Game\n";
     std::cout << "7. Sort Array\n";
+    std::cout << "8. Quiz Game\n";
     std::cout << "10. Exit\n";
     std::cout << "Choose:";
 }
@@ -184,6 +186,7 @@ void handleMenuChoice(int choice){
             } while (restart == 'y');
             break;
         }
+
         case 7: {
             int size;
 
@@ -196,9 +199,7 @@ void handleMenuChoice(int choice){
                 std::cout << "Enter a number:";
                 std::cin >> numArr[i];
             }
-
             Sorting::bubbleSort(numArr, size);
-
             std::cout << "The sorted array is:\n";
 
             for (int k = 0; k < size; k++) {
@@ -207,6 +208,15 @@ void handleMenuChoice(int choice){
             std::cout << '\n';
             break;
         }
+
+        case 8:{
+
+            std::cout << "QUIZ GAME\n";
+            Quiz::getQuestions();
+            std::cout << "You got " << Quiz::getScore() << "/4 correct!\n";
+            break;
+        }
+
         case 10:
             std::cout << "EXITING...";
             exit(0);
