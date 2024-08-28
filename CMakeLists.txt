@@ -20,4 +20,6 @@ add_executable(tutorial main.cpp
         Include/sorting.h
         Source/quiz.cpp
         Include/quiz.h
+        Source/creditCardValidator.cpp
+        Include/creditCardValidator.h
 )

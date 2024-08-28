@@ -8,6 +8,7 @@
 #include "Include/rock_paper_scissors.h"
 #include "Include/sorting.h"
 #include "Include/quiz.h"
+#include "Include/creditCardValidator.h"
 
 void showMenu(){
     std::cout << "1. Calculate Hypotenuse\n";
@@ -18,6 +19,7 @@ void showMenu(){
     std::cout << "6. Rock-Paper-Scissors Game\n";
     std::cout << "7. Sort Array\n";
     std::cout << "8. Quiz Game\n";
+    std::cout << "9. Credit Card Validator\n";
     std::cout << "10. Exit\n";
     std::cout << "Choose:";
 }
@@ -215,6 +217,21 @@ void handleMenuChoice(int choice){
             Quiz::getQuestions();
             std::cout << "You got " << Quiz::getScore() << "/4 correct!\n";
             break;
+        }
+
+        case 9: {
+            std::cout << "CREDIT CARD VALIDATOR\n";
+            std::string cardNumber;
+            bool res;
+
+            std::cout << "Enter a credit card #: \n";
+            std::cin >> cardNumber;
+            res = CreditCardValidator::validate(cardNumber) << '\n';
+            if (res) {
+                std::cout << "Valid Number!\n";
+            } else {
+                std::cout << "Invalid Number\n";
+            }
         }
 
         case 10:
